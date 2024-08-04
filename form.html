@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Google Form clone</title>
+    <style>
+      * {
+        font-family: poppins;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #ede6f6;
+      }
+
+      h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: normal;
+    unicode-bidi: isolate;
+}
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .main {
+        height: 450px;
+        width: 50vw;
+        box-sizing: border-box;
+        background-color: white;
+        border-top: 12px solid #663ab5;
+        border-radius: 10px;
+        margin: 13px;
+        margin-bottom: 0;
+        padding: 10px;
+        padding-left: 30px;
+        font-size: 13px;
+      }
+      .main h1 {
+        font-size: 25px;
+      }
+      .name {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        padding: 10px;
+        padding-left: 30px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+      input[type="text"],
+      [type="email"] {
+        border: none;
+        border-bottom: 1px solid black;
+        width: 90%;
+        padding: 5px;
+      }
+      .usn {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        padding: 10px;
+        padding-left: 30px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+      .gender {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        padding: 10px;
+        padding-left: 30px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+      .email {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        margin-bottom: 0;
+        padding: 10px;
+        padding-left: 30px;
+        border-radius: 10px;
+      }
+
+      .phone {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        margin-bottom: 0;
+        padding: 10px;
+        padding-left: 30px;
+        border-radius: 10px;
+      }
+
+      .department {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        padding: 10px;
+        padding-left: 30px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+
+      .college {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        padding: 10px;
+        padding-left: 30px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+
+      select {
+    width: calc(100% - 60px); /* Adjust for padding and border */
+    padding: 8px;
+      }
+
+      .stream {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        padding: 8px;
+        padding-left: 30px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+
+      .event {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        padding: 8px;
+        padding-left: 30px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+
+      .username {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        padding: 10px;
+        padding-left: 30px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+
+      .password {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        margin-bottom: 0;
+        padding: 10px;
+        padding-left: 30px;
+        border-radius: 10px;
+      }
+
+      .req {
+        background-color: white;
+        box-sizing: border-box;
+        height: 150px;
+        width: 50vw;
+        margin: 13px;
+        padding: 10px;
+        padding-left: 30px;
+        margin-bottom: 0;
+        border-radius: 10px;
+      }
+
+      /* button {
+        margin: 13px;
+        margin-bottom: 0;
+        align-self: flex-start;
+        position: relative;
+        left: 372px;
+        padding: 8px 19px;
+        border-radius: 3px;
+        background-color: #663ab5;
+        border: none;
+        color: white;
+      } */
+      .submit {
+        width: 50vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+      button {
+        margin: 13px;
+        margin-left: 0;
+        margin-bottom: 0;
+        padding: 8px 19px;
+        border-radius: 3px;
+        background-color: #663ab5;
+        border: none;
+        color: white;
+      }
+
+      /* .reset { 
+        margin: -33px;
+        margin-left: 600px;
+        margin-top: -50px
+        margin-bottom: 0;
+        padding: 8px 10px; 
+        border-radius: 3px;
+        background-color: #663ab5;
+        border: none;
+        color: white;
+      } */
+
+      button:hover {
+        background-color: #452286;
+        transition: ease-in 200ms;
+      }
+      .rule {
+        width: 50vw;
+        margin-top: 15px;
+        font-size: 13px;
+        color: grey;
+      }
+      .policy {
+        font-size: 14px;
+        color: grey;
+      }
+      .policy a {
+        text-decoration: none;
+        color: grey;
+        text-decoration: underline;
+      }
+      img {
+        margin-top: 13px;
+        height: 200px;
+        width: 50vw;
+        object-fit: fill;
+        object-position: center;
+        border-radius: 10px;
+      }
+
+      .Google {
+        text-align: center;
+      }
+      @media only screen and (max-width: 1000px){
+        img, .main, .name, .usn, .gender, .email, .username, .password, .phone, .department, .stream, .event, .college, .req, .submit, .reset .rule, .policy, .Google {
+          /* height: auto; */
+          width: 90vw;
+        }
+        img {
+          height: 125px;
+        }
+        .main {
+          height: 400px;
+          font-size: 12px;
+        }
+        /* .name, .usn, .gender, .email, .username, .password, .phone, .department, .stream {
+          height: 110px;
+          font-size: 12px;
+        } */
+
+        .main h1 {
+          font-size: 18px;
+        }
+        .main p,h4 {
+          margin: 10px 0px;
+        }
+        h1 {
+          font-size: 25px;
+        }
+        input[type="text"],
+        [type="email"] {
+          padding: 5;
+        }
+
+        #errorMessage {
+        color: red;
+        }
+
+        button {
+          padding: 10px 22px;
+          border-radius: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form action="\Sanjay\6th sem\ST\MP\success.html" method="post">
+      <img src="banner1.jpg" alt="Sanjay S" >
+      <div class="main">
+        <h1>Event Registration Form</h1>
+        <hr />
+        <h3><b>Hello guys</b></h3>
+        <h3><b>Welcome to our event! To secure your spot, please fill out the registration form with your information, select your preferred event, and let us know if you have any special requirements. We're thrilled to have you join us and can't wait to see you there!</b></h3>
+        <h3><b>Our Events are: </b></h3>
+        <h3>1. Code Masters Hackathon<br>
+          2. AI Innovation Challenge<br>
+          3. Cybersecurity Capture the Flag<br>
+          4. Robotics Engineering Showdown<br>
+          5. Tech Startups Pitch Competition<br>
+          <h3><b>Note:<br>1. Username and password are required for free registration login credentials
+            <br>2. Please don't apply many times,or your application will be considered as invalid </b></h3>
+        <h3 style="color: red;"><b>* Indicates Required</b></h3>
+      </div>
+      <div class="name">
+        <h3>Full Name<span style="color: red;">*</span></h3>
+        <input type="text" name="name" id="name" required />
+      </div>
+
+      <div class="usn">
+        <h3>USN<span style="color: red;">*</span></h3>
+        <input type="text" name="usn" id="usn" required />
+      </div>
+      
+      <!-- <div class="email">
+        <h3>Email <span style="color: red;">*</span></h3>
+        <input type="email" name="name" id="" required />
+      </div> -->
+
+      <div class="email">
+        <h3>Email <span style="color: red;">*</span></h3>
+        <input type="email" name="email" id="email" required onkeyup="validateEmail(this)">
+        <span id="emailError" style="color: red; display: none;"></span>
+      </div>
+
+      <div class="gender">
+        <h3>Gender <span style="color: red;">*</span></h3>
+        <input type="radio" id="gender" name="gender" value="Male" required>Male<br>
+      <input type="radio" id="Female" name="gender" value="Female" required>Female<br>
+      <input type="radio" id="other" name="gender" value="Other" required>Other
+      </div>
+
+      <!-- <div class="phone">
+        <h3>Phone Number <span style="color: red;">*</span></h3>
+        <input type="text" name="phone" id="" required />
+      </div> -->
+
+      <div class="phone">
+        <h3>Phone Number <span style="color: red;">*</span></h3>
+        <input type="text" name="phone" id="phone" maxlength="10" required onkeyup="validatePhone(this)">
+        <span id="phoneError" style="color: red; display: none;"></span>
+      </div>
+
+      <div class="stream">
+        <h3>Stream <span style="color: red;">*</span></h3>
+        <select id="stream" name="stream" required>
+            <option value="">Select Stream</option>
+            <option value="BE">BE/BTech</option>
+            <!-- <option value="BTech">BTech</option> -->
+            <option value="BCA">BCA</option>
+            <option value="BSC">BSC</option>
+            <option value="Diploma">Diploma</option>
+        </select>
+        <!-- <div class="error-message" id="error-stream"></div> -->
+    </div>
+
+    <div class="college">
+      <h3>College <span style="color: red;">*</span></h3>
+      <input type="text" id="college" name="college" required>
+      <!-- <div class="error-message" id="error-college"></div> -->
+  </div>
+
+      <div class="department">
+        <h3>Department<span style="color: red;">*</span></h3>
+        <input type="text" id="department" name="department" required>
+        <!-- <div class="error-message" id="error-department"></div> -->
+    </div>
+
+    <div class="event">
+      <h3>Select the event you want to register <span style="color: red;">*</span></h3>
+      <select id="event" name="event" required>
+          <option value="">Select </option>
+          <option value="1">Code Masters Hackathon</option>
+          <option value="2">AI Innovation Challenge</option>
+          <option value="3">Cybersecurity Capture the Flag</option>
+          <option value="4">Robotics Engineering Showdown</option>
+          <option value="5">Tech Startups Pitch Competition</option>
+      </select>
+  </div>
+
+      <div class="username">
+        <h3>User Name <span style="color: red;">*</span></h3>
+        <input type="text" name="username" id="username" required />
+      </div>
+
+      <div class="password">
+      <!-- <form id="myForm"> -->
+        <h3>Password<span style="color: red;">*</span></h3>
+        <input type="text" id="password" name="password" required>
+        <div id="passwordError" style="color: red;"></div>  <!-- <button type="submit" disabled>Submit</button> -->
+      <!-- </form> -->
+        </div>
+
+        <div class="req">
+          <h3>Any requirements</h3>
+          <input type="text" name="req" id="req" required />
+        </div>
+
+      <div class="submit">
+        <button id="submit">Submit</button>
+      </div>
+      <!-- <div class="submit">
+        <button onclick="window.location.href = 'success.html'" id="submit">Submit</button>
+      </div> -->
+      <!-- <div class="reset">
+        <button>Fill Again</button>
+      </div> -->
+      <p class="rule">Never submit passwords through Google Forms</p>
+      <p class="policy">
+        This content is neither created nor endrosed by Google.
+        <a href="#">Report Abuse.</a> <a href="#">Terms of condition.</a>
+        <a href="#">Privacy Policy.</a>
+        <h1 class="Google" style="color: grey; font-weight: 550; width: 50vw;">Google Forms</h1>
+      </p>
+    </form>
+    <script>
+        const passwordInput = document.getElementById("password");
+        const passwordError = document.getElementById("passwordError");
+        const submitButton = document.querySelector("form button");
+
+function validatePassword(password) {
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasNumber = /[0-9]/.test(password);
+  const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':",./<>?|\\ ]/.test(password);
+  const isLongEnough = password.length >= 8;
+
+  let errorMessage = "";
+  if (!isLongEnough) {
+    errorMessage = "Password must be at least 8 characters long !!.";
+  } else if (!hasUppercase) {
+    errorMessage = "Password must contain at least one uppercase letter !!.";
+  } else if (!hasNumber) {
+    errorMessage = "Password must contain at least one number !!.";
+  } else if (!hasSpecialChar) {
+    errorMessage = "Password must contain at least one special character !!.";
+  }
+
+  return { isValid: isLongEnough && hasUppercase && hasNumber && hasSpecialChar, message: errorMessage };
+}
+
+passwordInput.addEventListener("keyup", function() {
+  const validationResult = validatePassword(this.value);
+  passwordError.textContent = validationResult.message;
+  submitButton.disabled = !validationResult.isValid; // Enable/disable submit button
+});
+
+
+// const phoneInput = document.querySelector('input[name="phone"]');
+// const errorMessage = document.querySelector('.error-message');
+
+// phoneInput.addEventListener('invalid', () => {
+//   errorMessage.style.display = 'block';
+// });
+
+// phoneInput.addEventListener('input', () => {
+//   if (phoneInput.validity.valid) {
+//     errorMessage.style.display = 'none';
+//   }
+// });
+
+
+function validateEmail(input) {
+  const emailValue = input.value;
+  const emailError = document.getElementById("emailError");
+
+  // Regular expression for basic email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Check if the email matches the regular expression
+  if (!emailRegex.test(emailValue)) {
+    emailError.textContent = "Please enter a valid email address.";
+    emailError.style.display = "inline-block";  // Show error message
+  } else {
+    emailError.textContent = "";  // Clear error message
+    emailError.style.display = "none";  // Hide error message
+  }
+}
+    </script>
+  </body>
+</html>
